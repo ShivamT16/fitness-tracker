@@ -80,20 +80,26 @@ export const fitnessReducer = (state = initialState, action) => {
                       loading: false,
                       error: "Error fetching goals data."
                     }
-                case "ADD_GOAL":
+        case "ADD_GOAL":
                         return{
                           ...state,
                           goals: [state.goals, action.payload],
                           loading:false,
                           error: null
                         }
-                case "REMOVE_GOAL":
+        case "REMOVE_GOAL":
                         return{
                           ...state,
                           goals: state.goals.filter((item) => item._id !== action.payload),
                           loading: false,
                           error: null
-                        } 
+                        }
+        case "ADD_ENTRY_FAILURE": 
+          return{
+            ...state,
+            loading: false,
+            error: "Error fetching data or performing action"
+          } 
         default:
             return state;
 
