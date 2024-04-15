@@ -96,7 +96,7 @@ export const deleteFood = (foodId) => async (dispatch) => {
       }
 }
 
-export const fetchgoals = () => async (dispatch) => {
+export const fetchGoals = () => async (dispatch) => {
     try{
         dispatch({type: "FETCH_DATA_LOADING"});
         const response = await fetch("https://fitness-tracker-management.vercel.app/goals")

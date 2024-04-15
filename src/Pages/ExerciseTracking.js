@@ -1,4 +1,15 @@
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchExercises } from "../actions"
+
 export const ExerciseTracking = () => {
+    const dispatch = useDispatch()
+    const exercises = useSelector((state) => state.exercise)
+
+    useEffect(() => {
+        dispatch(fetchExercises())
+    }, [dispatch])
+
     return(
         <div>
             <h1>Exercise Tracking</h1>
@@ -8,6 +19,15 @@ export const ExerciseTracking = () => {
             <input type="number" placeholder="Calories burned" />
             <button>Add New Exercise</button>
             </form>
+            <div>
+                {
+                    exercises.map(({_id,name,duration,calories}) => 
+                <div key={_id}> 
+                    {name} : {duration} : {calories}
+                </div>
+                )
+                }
+            </div>
         </div>
     )
 }
