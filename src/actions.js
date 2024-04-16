@@ -22,6 +22,7 @@ export const addExercise = (newExercise) => async (dispatch) => {
      })
      const data = await response.json()
      if(data) {
+        // console.log(data);
         dispatch({type: "ADD_EXERCISE", payload: data})
      }
     }

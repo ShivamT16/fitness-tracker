@@ -29,7 +29,7 @@ export const fitnessReducer = (state = initialState, action) => {
         case "ADD_EXERCISE":
           return{
             ...state,
-            exercise: [state.exercise, action.payload],
+            exercise: [...state.exercise, action.payload],
             loading:false,
             error: null
           }
@@ -56,7 +56,7 @@ export const fitnessReducer = (state = initialState, action) => {
         case "ADD_FOOD":
           return{
                   ...state,
-                  food: [state.food, action.payload],
+                  food: [...state.food, action.payload],
                   loading:false,
                   error: null
                 }
@@ -83,7 +83,7 @@ export const fitnessReducer = (state = initialState, action) => {
         case "ADD_GOAL":
                         return{
                           ...state,
-                          goals: [state.goals, action.payload],
+                          goals: [...state.goals, action.payload],
                           loading:false,
                           error: null
                         }
