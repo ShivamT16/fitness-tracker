@@ -37,26 +37,30 @@ export const GoalTracking = () => {
     }
 
     return(
-        <div>
+        <div className="tracking-main">
             <h1>Goal Tracking</h1>
             <form>
-            <input type="text" placeholder="Goal Name" value={newGoal.name} name="name" onChange={handleChange} />
-            <input type="text" placeholder="Goal Description" value={newGoal.description} name="description" onChange={handleChange} />
-            <input type="date" value={newGoal.date} name="date" onChange={handleChange} />
-            <input type="number" placeholder="Target Calories Value" value={newGoal.calories} name="calories" onChange={handleChange} />
-            <select value={newGoal.status} name="status" onChange={handleChange}>
+            <input className="input" autoComplete="off" type="text" placeholder="Goal Name" value={newGoal.name} name="name" onChange={handleChange} />
+            <input className="input" autoComplete="off" type="text" placeholder="Goal Description" value={newGoal.description} name="description" onChange={handleChange} />
+            <input className="input" autoComplete="off" type="date" value={newGoal.date} name="date" onChange={handleChange} />
+            <input className="input" autoComplete="off" type="number" placeholder="Target Calories Value" value={newGoal.calories} name="calories" onChange={handleChange} />
+            <select className="input" value={newGoal.status} name="status" onChange={handleChange}>
                 <option value="">Status</option>
                 <option>In Progress</option>
                 <option>Achieved</option>
                 <option>Abandoned</option>
             </select>
-            <button onClick={handleSubmit} >Add New Goal</button>
             </form>
-            <div>
+            <button className="submit-btn" onClick={handleSubmit} >Add New Goal</button>
+            <div className="cards">
                 {goals.map(({_id,name,description,date,calories,status}) =>
-            <div key={_id} >
-                {name} : {description} : {date} : {calories} : {status}
-                <button onClick={() => dispatch(deleteGoal(_id)) } >Delete</button>
+            <div className="cards-item" key={_id} >
+                <p className="description">Goal: {name} </p>
+                <p className="description">Description: {description} </p>
+                <p>Target Date: {date ? date.slice(0,10).split("-").reverse().join("-") : ""} </p>
+                <p>Target Calories: {calories} </p>
+                <p>Status: {status} </p>
+                <button className="delete-btn" onClick={() => dispatch(deleteGoal(_id)) } >Delete</button>
             </div>
             )}
             </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addExercise, deleteExercise, fetchExercises } from "../actions"
+import "./pages.css"
 
 export const ExerciseTracking = () => {
     const dispatch = useDispatch()
@@ -31,19 +32,20 @@ export const ExerciseTracking = () => {
     }
 
     return(
-        <div>
+        <div className="tracking-main">
             <h1>Exercise Tracking</h1>
             <form>
-            <input type="text" placeholder="Exercise Name" value={newExercise.name} name="name" autoComplete="off" onChange={handleChange} />
-            <input type="number" placeholder="Duration (minutes) " value={newExercise.duration} name="duration" autoComplete="off" onChange={handleChange} />
-            <button onClick={handleSubmit} >Add New Exercise</button>
+            <input className="input" type="text" placeholder="Exercise Name" value={newExercise.name} name="name" autoComplete="off" onChange={handleChange} />
+            <input className="input" type="number" placeholder="Duration (minutes) " value={newExercise.duration} name="duration" autoComplete="off" onChange={handleChange} />
             </form>
-            {/* {console.log(exercises)} */}
-            <div>
+            <button className="submit-btn" onClick={handleSubmit} >Add New Exercise</button>
+            <div className="cards">
                 {exercises.map(({_id,name,duration,calories}) => 
-                <div key={_id}> 
-                    {name} : {duration} : {calories}
-                    <button onClick={() => dispatch(deleteExercise(_id)) } >Delete</button>
+                <div className="cards-item" key={_id}> 
+                    <p>Exercise Name: {name}</p>
+                    <p>Duration: {duration} min</p>
+                    <p>Calories: {calories}</p>
+                    <button className="delete-btn" onClick={() => dispatch(deleteExercise(_id)) } >Delete</button>
                 </div>
                 )
                 }

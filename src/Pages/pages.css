@@ -1,0 +1,40 @@
+.tracking-main{
+    border-radius: 2rem;
+    padding: 1rem 0rem 2rem 2rem;
+    margin-top: 2rem;
+    background-color: whitesmoke;
+}
+.input{
+    font-size: 1rem;
+    margin-right: 2rem;
+
+}
+.submit-btn{
+    padding: 0.3rem 2rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    background-color: #F8F6E3;
+}
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.cards-item{
+    border: 2px solid blue;
+    background-color: #c4dcf4;
+    border-radius: 1rem;
+    padding: 0.3rem 1rem 1.5rem 1rem;
+    font-size: 1.3rem
+}
+.delete-btn{
+    padding: 0.2rem 1rem;
+    border-radius: 1rem;
+    background-color: #FFF7FC;
+}
+.description{
+    width: 15rem;
+    display: flex;
+    flex-wrap: wrap;
+}

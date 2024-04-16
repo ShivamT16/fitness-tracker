@@ -37,21 +37,25 @@ export const FoodTracking = () => {
     }
 
     return(
-        <div>
+        <div className="tracking-main">
             <h1>Food Tracking</h1>
             <form>
-            <input type="text" placeholder="Food Name" value={addNewFood.foodName} name="foodName" onChange={handleChange}  />
-            <input type="number" placeholder="Calories" value={addNewFood.calories} name="calories" onChange={handleChange} />
-            <input type="number" placeholder="Protein (grams)" value={addNewFood.protein} name="protein" onChange={handleChange} />
-            <input type="number" placeholder="Carbohydrates (grams)" value={addNewFood.carbohydrates} name="carbohydrates" onChange={handleChange} />
-            <input type="number" placeholder="Fat (grams)" value={addNewFood.fat} name="fat" onChange={handleChange} />
-            <button onClick={handleSubmit} >Add New Item</button>
+            <input className="input" type="text" placeholder="Food Name" value={addNewFood.foodName} name="foodName" onChange={handleChange}  />
+            <input className="input" type="number" placeholder="Calories" value={addNewFood.calories} name="calories" onChange={handleChange} />
+            <input className="input" type="number" placeholder="Protein (grams)" value={addNewFood.protein} name="protein" onChange={handleChange} />
+            <input className="input" type="number" placeholder="Carbohydrates (grams)" value={addNewFood.carbohydrates} name="carbohydrates" onChange={handleChange} />
+            <input className="input" type="number" placeholder="Fat (grams)" value={addNewFood.fat} name="fat" onChange={handleChange} />
             </form>
-            <div>
+            <button className="submit-btn" onClick={handleSubmit} >Add New Item</button>
+            <div className="cards">
                 {food.map(({_id,foodName,calories,protein,carbohydrates,fat}) =>
-              <div key={_id} >
-                {foodName} : {calories} : {protein} : {carbohydrates} : {fat}
-                <button onClick={() => dispatch(deleteFood(_id)) } >Delete</button>
+              <div className="cards-item" key={_id} >
+                <p className="description">Food Name: {foodName} </p>
+                <p>Calories: {calories} </p>
+                <p>Protein: {protein} </p>
+                <p>Carbohydrates: {carbohydrates} </p>
+                <p>Fat: {fat} </p>
+                <button className="delete-btn" onClick={() => dispatch(deleteFood(_id)) } >Delete</button>
               </div>
             )}
             </div>
